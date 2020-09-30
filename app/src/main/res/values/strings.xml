@@ -14,6 +14,7 @@
     <string name="hello_world">Hello world!</string>
     <string name="drawer_open">Open navigation drawer</string>
     <string name="drawer_close">Close navigation drawer</string>
+    <string name="ticks">Accessibility</string>
 
 
     <string-array name="navigation_drawer_items_array">

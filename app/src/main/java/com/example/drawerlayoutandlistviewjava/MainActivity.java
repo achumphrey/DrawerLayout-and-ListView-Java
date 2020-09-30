@@ -14,6 +14,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -33,12 +34,12 @@ public class MainActivity extends AppCompatActivity {
         mTitle = mDrawerTitle = getTitle();
         mNavigationDrawerItemTitles= getResources()
                 .getStringArray(R.array.navigation_drawer_items_array);
-        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        mDrawerList = (ListView) findViewById(R.id.left_drawer);
+        mDrawerLayout = findViewById(R.id.drawer_layout);
+        mDrawerList = findViewById(R.id.left_drawer);
 
         setupToolbar();
 
-        DataModel[] drawerItem = new DataModel[3];
+        DataModel[] drawerItem = new DataModel[mNavigationDrawerItemTitles.length];
 
         drawerItem[0] = new DataModel(R.drawable.connect, "Connect");
         drawerItem[1] = new DataModel(R.drawable.fixtures, "Fixtures");
@@ -117,7 +118,22 @@ public class MainActivity extends AppCompatActivity {
             return true;
         }
 
-        return super.onOptionsItemSelected(item);
+        switch (item.getItemId()){
+
+            case R.id.action_settings:
+                // run code
+                Toast.makeText(this, "Settings Clicked", Toast.LENGTH_LONG).show();
+                return true;
+
+            case R.id.example:
+                //run code
+                Toast.makeText(this, "Accessibility Clicked", Toast.LENGTH_LONG).show();
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+
     }
 
     @Override
